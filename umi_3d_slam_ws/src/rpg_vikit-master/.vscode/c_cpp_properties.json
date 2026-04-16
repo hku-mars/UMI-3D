@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/wzm/A_LIVO2_360/devel/include/**",
+        "/home/wzm/L515/devel/include/**",
+        "/home/wzm/LiVOX_driver_r2/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/wzm/A_LIVO2_360/src/FAST-LIVO2/include/**",
+        "/home/wzm/L515/src/realsense-ros/realsense2_camera/include/**",
+        "/home/wzm/A_LIVO2_360/src/rpg_vikit-master/vikit_common/include/**",
+        "/home/wzm/A_LIVO2_360/src/rpg_vikit-master/vikit_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

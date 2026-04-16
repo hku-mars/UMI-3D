@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/wzm/A_LIVO2_360/devel/lib/python3/dist-packages",
+        "/home/wzm/L515/devel/lib/python3/dist-packages",
+        "/home/wzm/LiVOX_driver_r2/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/wzm/A_LIVO2_360/devel/lib/python3/dist-packages",
+        "/home/wzm/L515/devel/lib/python3/dist-packages",
+        "/home/wzm/LiVOX_driver_r2/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

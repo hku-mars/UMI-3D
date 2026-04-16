@@ -1,0 +1,2 @@
+python scripts_slam_pipeline/04_detect_aruco.py -i /home/wzm/UMI-3D/data_workspace/Bluecup/demos/ -ci /home/wzm/UMI-3D/example/calibration/gopro_intrinsics_2_7k.json -ac /home/wzm/UMI-3D/example/calibration/aruco_config.yaml
+

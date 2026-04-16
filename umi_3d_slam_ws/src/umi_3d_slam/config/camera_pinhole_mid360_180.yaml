@@ -1,0 +1,36 @@
+cam_model: EquidistantCamera
+cam_width: 1280
+cam_height: 1024
+scale: 1.0
+cam_fx: 396.1102861302
+cam_fy: 395.1781925304
+cam_cx: 668.3557179196
+cam_cy: 477.4781205126
+cam_d0: -0.0174379594
+cam_d1: 0.0082377969
+cam_d2: -0.0146517052
+cam_d3: 0.0052541623
+
+# cam_model: EquidistantCamera
+# resolution: [1280, 1024]
+# intrinsics: [396.1102861302, 395.1781925304, 668.3557179196, 477.4781205126]
+# distortion_coeffs: [-0.0174379594, 0.0082377969, -0.0146517052, 0.0052541623]
+
+#这是long figure版本相机内参
+# cam_model: Pinhole
+# cam_width: 1280
+# cam_height: 1024
+# scale: 1.0
+# cam_fx: 393.53316095
+# cam_fy: 633.36500258
+# cam_cx: 633.36500258
+# cam_cy: 486.0630068
+# cam_d0: -0.01079429
+# cam_d1: -0.00753075
+# cam_d2: 0.01504143
+# cam_d3: -0.00744552
+
+
+
+# DEFAULT_K = np.array([ [393.53316095, 0.0, 633.36500258], [0.0, 393.4161809, 486.0630068], [0.0, 0.0, 1.0] ], dtype=np.float64) 
+# DEFAULT_D = np.array([-0.01079429, -0.00753075, 0.01504143, -0.00744552],

@@ -1,0 +1,45 @@
+# Fisheye Camera intrinsics  
+  fx: 396.11028613
+  fy: 395.17819253
+  cx: 668.35571792
+  cy: 477.47812051
+  k1: -0.01743796
+  k2: 0.0082378
+  k3: -0.01465171
+  k4: 0.00525416
+
+
+# 2 times size check board
+#   marker_size: 0.2 # ArUco marker size (our test data uses 0.16m; adjust to match your marker size)
+#   delta_width_qr_center: 0.55 # Half the distance between the centers of two markers in the horizontal direction 
+#   delta_height_qr_center: 0.35 # Half the distance between the centers of two markers in the vertical direction
+#   delta_width_circles: 0.5 # Distance between the centers of two circles in the horizontal direction
+#   delta_height_circles: 0.4 # Distance between the centers of two circles in the vertical direction
+#   circle_radius: 0.12 # Radius of the circle 
+
+  marker_size: 0.1
+  delta_width_qr_center: 0.275
+  delta_height_qr_center: 0.175
+  delta_width_circles: 0.25
+  delta_height_circles: 0.2
+  circle_radius: 0.06  
+
+
+# Distance filter
+  x_min: 0.4 
+  x_max: 1.2
+  y_min: -0.5
+  y_max: 0.5
+  z_min: 0.08 
+  z_max: 1
+
+# Input
+  lidar_topic: "/livox/lidar" # /ouster/points /livox/lidar
+  bag_path: "$(find livox2cam_calibration)/calib_data/umi7.bag"
+  image_path: "$(find livox2cam_calibration)/calib_data/umi7.png"
+
+# midresult
+  midresult_path: "$(find livox2cam_calibration)/midresult"
+
+# Output
+  output_path: "$(find livox2cam_calibration)/output/"

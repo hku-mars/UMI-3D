@@ -1,0 +1,26 @@
+<launch>
+  <arg name="rviz" default="false" />
+  <arg name="traj_csv" default="$(find umi_3d_slam)/output/camera_trajectory.csv"/>
+
+  <!-- 1) LIO 参数 -->
+  <rosparam command="load" file="$(find umi_3d_slam)/config/mid360_180.yaml" />
+
+  <!-- 2) LIO Mapping -->
+  <node pkg="umi_3d_slam" type="fastlivo_mapping" name="laserMapping" output="screen">
+    <rosparam file="$(find umi_3d_slam)/config/camera_pinhole_mid360_180.yaml" />
+  </node>
+
+  <!-- 3) 可选 RViz -->
+  <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz"
+          args="-d $(find umi_3d_slam)/rviz_cfg/umi_3d_slam.rviz" />
+  </group>
+
+  <!-- 4) Save trajectory -->
+  <node pkg="umi_3d_slam" type="save_camera_trajectory" name="save_camera_trajectory" output="screen">
+    <param name="odom_topic" value="/camera_to_init" />
+    <param name="csv_path" value="$(arg traj_csv)" />
+    <param name="overwrite" value="true" />
+    <param name="use_relative_time" value="false" />
+  </node>
+</launch>

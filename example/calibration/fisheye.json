@@ -1,0 +1,20 @@
+{
+  "final_reproj_error": 0.16,
+  "fps": 0.0,
+  "image_height": 1024,
+  "image_width": 1280,
+  "intrinsic_type": "FISHEYE",
+  "intrinsics": {
+    "aspect_ratio": 0.9997083726226115,
+    "focal_length": 395.64423933,
+    "principal_pt_x": 668.3557179196,
+    "principal_pt_y": 477.4781205126,
+    "radial_distortion_1": -0.0174379594,
+    "radial_distortion_2":  0.0082377969,
+    "radial_distortion_3": -0.0146517052,
+    "radial_distortion_4": 0.0052541623,
+    "skew": 0.0
+  },
+  "nr_calib_images": 200,
+  "stabelized": false
+}

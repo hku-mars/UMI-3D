@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "ROS",
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "compilerPath": "/usr/bin/g++",
+      "intelliSenseMode": "gcc-x64",
+      "cppStandard": "c++14",
+      "cStandard": "gnu11"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,58 @@
+<launch>
+  <!-- Launch file for MID360 + FAST-LIVO2 mapping + fisheye undistort + save camera trajectory -->
+
+  <arg name="rviz" default="true" />
+
+  <!-- 输出 CSV 的路径：可在 roslaunch 时覆盖
+       例：roslaunch umi_3d_slam mapping_mid360.launch traj_csv:=/tmp/camera_trajectory.csv -->
+  <arg name="traj_csv" default="$(find umi_3d_slam)/output/camera_trajectory.csv"/>
+
+  <!-- 1) LIO 参数 -->
+  <rosparam command="load" file="$(find umi_3d_slam)/config/mid360_180.yaml" />
+
+  <!-- 2) LIO Mapping -->
+  <node pkg="umi_3d_slam" type="fastlivo_mapping" name="laserMapping" output="screen">
+    <rosparam file="$(find umi_3d_slam)/config/camera_pinhole_mid360_180.yaml" />
+  </node>
+
+  <node pkg="topic_tools" type="relay" name="image_relay"
+      args="/left_camera/image /image_visualize"/>
+
+  <!-- 3) RViz -->
+  <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz"
+          args="-d $(find umi_3d_slam)/rviz_cfg/umi_3d_slam.rviz" />
+  </group>
+
+  <!-- 4) 把 compressed 图像转成 raw Image（供去畸变脚本订阅） -->
+  <node pkg="image_transport" type="republish" name="republish"
+        args="compressed in:=/left_camera/image raw out:=/left_camera/image"
+        output="screen" respawn="true" />
+
+  <node pkg="umi_3d_slam" type="save_camera_trajectory" name="save_camera_trajectory" output="screen">
+    <!-- topics -->
+    <param name="lidar_topic" value="/livox/lidar"/>
+    <param name="odom_topic"  value="/camera_to_init"/>
+    <param name="lost_topic"  value="/livo_frame_lost"/>
+
+    <!-- output -->
+    <param name="csv_path" value="$(env HOME)/A_LIVO_UMI/src/FAST-LIVO2/output/camera_trajectory.csv"/>
+    <param name="overwrite" value="true"/>
+    <param name="use_relative_time" value="false"/>
+
+    <!-- LOST: 没收到lost时默认当lost（保守） -->
+    <param name="lost_default_if_unknown" value="true"/>
+
+    <!-- UMI fields -->
+    <param name="state_default" value="2"/>
+    <param name="keyframe_default" value="false"/>
+
+    <!-- (optional) debug column: have_odom -->
+    <param name="write_have_odom_col" value="false"/>
+    <param name="write_odom_age_col"  value="false"/>
+    <!-- 注意：新版本不再使用 odom_max_dt（可以删除） -->
+    <!-- <param name="odom_max_dt" value="0.08"/> -->
+  </node>
+
+
+</launch>

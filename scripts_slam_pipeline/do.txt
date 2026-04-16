@@ -1,0 +1,43 @@
+python scripts_slam_pipeline/00_process_videos.py data_workspace/Bluecup/
+
+python scripts_slam_pipeline/04_detect_aruco.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/02-01/aligned_bags/demos -ci /home/wzm/universal_manipulation_interface/example/calibration/fisheye.json -ac /home/wzm/universal_manipulation_interface/example/calibration/aruco_config.yaml
+
+python scripts_slam_pipeline/05_run_calibrations.py /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/02-01/aligned_bags
+
+python scripts_slam_pipeline/06_generate_dataset_plan.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/02-01/aligned_bags
+
+python scripts_slam_pipeline/07_generate_replay_buffer.py    /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/02-01/aligned_bags     -o /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/02-01/aligned_bags/dataset.zarr.zip
+
+
+
+(umi) wzm@wzm-rog:~/universal_manipulation_interface$ python scripts_slam_pipeline/04_detect_aruco.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/Cup/aligned_bags/demos -ci /home/wzm/universal_manipulation_interface/example/calibration/fisheye.json -ac /home/wzm/universal_manipulation_interface/example/calibration/aruco_config.yaml
+
+python scripts_slam_pipeline/05_run_calibrations.py /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/Cup/aligned_bags
+
+python scripts_slam_pipeline/06_generate_dataset_plan.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/Cup/aligned_bags
+
+python scripts_slam_pipeline/07_generate_replay_buffer.py    /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/Cup/aligned_bags     -o /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_data/Cup/aligned_bags/dataset_cup_01.zarr.zip
+
+
+python scripts_slam_pipeline/04_detect_aruco.py -i /media/wzm/Extreme\ SSD/UMI_data/Cup_all/aligned_bags/demos -ci /home/wzm/universal_manipulation_interface/example/calibration/fisheye.json -ac /home/wzm/universal_manipulation_interface/example/calibration/aruco_config.yaml
+
+python scripts_slam_pipeline/05_run_calibrations.py /media/wzm/Extreme\ SSD/UMI_data/Cup_all/aligned_bags
+python scripts_slam_pipeline/06_generate_dataset_plan.py -i /media/wzm/Extreme\ SSD/UMI_data/Cup_all/aligned_bags
+python scripts_slam_pipeline/07_generate_replay_buffer.py    /media/wzm/Extreme\ SSD/UMI_data/Cup_new/aligned_bags     -o /media/wzm/Extreme\ SSD/UMI_data/Cup_new/aligned_bags/dataset_cup_02_new.zarr.zip
+
+
+python scripts_slam_pipeline/04_detect_aruco.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_curtain/A_Crutain_all/aligned_bags/demos -ci /home/wzm/universal_manipulation_interface/example/calibration/fisheye.json -ac /home/wzm/universal_manipulation_interface/example/calibration/aruco_config.yaml
+python scripts_slam_pipeline/05_run_calibrations.py /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_curtain/A_Crutain_all/aligned_bags
+python scripts_slam_pipeline/06_generate_dataset_plan.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_curtain/A_Crutain_all/aligned_bags
+python scripts_slam_pipeline/07_generate_replay_buffer.py   /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_curtain/A_Crutain_all/aligned_bags     -o /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_curtain/A_Crutain_all/aligned_bags/dataset_curtain_01.zarr.zip
+
+
+python scripts_slam_pipeline/00_detect_aruco.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_door/A_door_all/aligned_bags/demos -ci /home/wzm/universal_manipulation_interface/example/calibration/fisheye.json -ac /home/wzm/universal_manipulation_interface/example/calibration/aruco_config.yaml
+python scripts_slam_pipeline/01_run_calibrations.py /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_door/A_door_all/aligned_bags
+python scripts_slam_pipeline/02_generate_dataset_plan.py -i /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_door/A_door_all/aligned_bags
+python scripts_slam_pipeline/03_generate_replay_buffer.py   /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_door/A_door_all/aligned_bags     -o /media/wzm/8ec88f55-c9c1-464d-88eb-698c0d2d6900/home/wzm/UMI_door/A_door_all/aligned_bags/dataset_door_01.zarr.zip
+
+
+####3D
+python3 04_batch_export_patch_xyz_from_aligned_demos.py     --root_dir "/media/wzm/5cb72875-53f3-471a-9ac7-30bda3b8c871/home/wzm/A_UMI_3D/Door_cup_New"     --image_topic /left_camera/image     --lidar_topic /livox/lidar     --out_subdir patch_xyz_umi3d     --resize_square_to 224     --patch_size 14     --depth_mode range     --min_range 0.1     --max_range 1.0     --min_z 0.05     --keep_front_180
+
