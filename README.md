@@ -407,7 +407,6 @@ aligned_bags/
         ├── gripper_calibration*/
         │    ├── raw_video.mp4
         │    ├── raw_video_timestamps.csv
-        │    └── tag_detection.pkl
    ↓
 00_detect_aruco.py
    ↓
