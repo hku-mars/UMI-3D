@@ -114,7 +114,7 @@ These recordings serve as the raw input for the full UMI-3D data processing pipe
 
 **Step 1 — Collect calibration images**
 
-- Use a checkerboard (**6 × 9 inner corners**, square size = **0.10 m**, configurable in script)  
+- Use a checkerboard (**6 × 9 inner corners**, square size = **0.1 m**, configurable in script)  
 - Capture ≥ 100 images with different positions (center / edges / corners), orientations, and distances  
 - Save all images to `fisheye_intrinsics/images/`
 
