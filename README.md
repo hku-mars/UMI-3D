@@ -389,6 +389,7 @@ This stage converts the preprocessed aligned demos into a **UMI-format replay bu
 The full pipeline is wrapped by:
 
 ```bash
+conda activate umi
 python run_dataset_pipeline.py \
   --session_dir /path/to/aligned_bags \
   --output /path/to/aligned_bags/DATASET_NAME.zarr.zip
